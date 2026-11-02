@@ -1,0 +1,15 @@
+section,model,setting,metric,value,params_M,time_s
+3 mini-GPT,minigpt_v1,"vocab=8000, ctx=64, layers=4, heads=4, iters=8000",best_val_loss,4.8954,2.86,271.6
+3 mini-GPT,minigpt_v1,"vocab=8000, ctx=64, layers=4, heads=4, iters=8000",best_val_bpc,2.1968,2.86,271.6
+3 mini-GPT,minigpt_v2,"vocab=4000, ctx=64, layers=4, heads=4, iters=8000",best_val_loss,4.4211,1.83,241.4
+3 mini-GPT,minigpt_v2,"vocab=4000, ctx=64, layers=4, heads=4, iters=8000",best_val_bpc,2.2703,1.83,241.4
+3 mini-GPT,minigpt_v3,"vocab=8000, ctx=64, layers=6, heads=4, iters=8000",best_val_loss,4.7924,3.25,355.5
+3 mini-GPT,minigpt_v3,"vocab=8000, ctx=64, layers=6, heads=4, iters=8000",best_val_bpc,2.1506,3.25,355.5
+5.2 zero-shot models,MoritzLaurer/multilingual-MiniLMv2-L6-mnli-xnli,default,accuracy,0.75,107.0,0.48
+5.2 zero-shot models,MoritzLaurer/mDeBERTa-v3-base-mnli-xnli,default,accuracy,0.9,279.0,2.1
+5.2 zero-shot models,joeddav/xlm-roberta-large-xnli,default,accuracy,0.9,560.0,1.43
+5.3 settings,joeddav/xlm-roberta-large-xnli,"база (template англ., 1 слово)",accuracy,0.9,,1.47
+5.3 settings,joeddav/xlm-roberta-large-xnli,template українською,accuracy,0.85,,1.46
+5.3 settings,joeddav/xlm-roberta-large-xnli,описові мітки,accuracy,0.8,,1.42
+5.3 settings,joeddav/xlm-roberta-large-xnli,multi_label=True,accuracy,0.95,,1.42
+5.3 settings,joeddav/xlm-roberta-large-xnli,поріг впевненості 0.6,accuracy,0.5,,1.45
