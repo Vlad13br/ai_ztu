@@ -1,0 +1,9 @@
+{
+  "name": "notecards-local-llm",
+  "private": true,
+  "type": "module",
+  "description": "Конспект → картки: застосунок до лабораторної 4 (локальна LLM через OpenAI-сумісний API). Node потрібен лише для тестів.",
+  "scripts": {
+    "test": "node --test tests/"
+  }
+}

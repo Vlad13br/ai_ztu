@@ -1,0 +1,9 @@
+label,model,concurrency,requests,errors,ttft_p50_s,ttft_p95_s,tokens_per_s_per_user_p50,throughput_tokens_per_s,reasoning
+before,qwen3:4b-instruct-2507-q4_K_M,1,16,0,0.099,0.147,46.2,45.0,False
+before,qwen3:4b-instruct-2507-q4_K_M,2,16,0,4.396,4.491,46.9,45.9,False
+before,qwen3:4b-instruct-2507-q4_K_M,4,16,0,9.272,13.369,45.9,45.0,False
+before,qwen3:4b-instruct-2507-q4_K_M,8,16,0,20.224,24.425,45.2,44.2,False
+after,qwen3:4b-instruct-2507-q4_K_M,1,16,0,0.101,0.148,45.1,44.1,False
+after,qwen3:4b-instruct-2507-q4_K_M,2,16,0,0.137,0.146,22.5,47.1,False
+after,qwen3:4b-instruct-2507-q4_K_M,4,16,0,0.205,0.258,27.5,87.9,False
+after,qwen3:4b-instruct-2507-q4_K_M,8,16,0,3.078,7.527,26.8,86.0,False

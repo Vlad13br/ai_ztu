@@ -1,0 +1,455 @@
+{
+  "meta": {
+    "label": "before",
+    "model": "qwen3:4b-instruct-2507-q4_K_M",
+    "base_url": "http://localhost:11434/v1",
+    "reasoning_effort": "none",
+    "structured_output": true
+  },
+  "results": [
+    {
+      "id": "q01_quantization",
+      "title": "Квантизація (лекція 5)",
+      "requested": 6,
+      "cards": 6,
+      "json_ok": true,
+      "coverage": 0.67,
+      "missed_facts": [
+        "пропускн",
+        "MoE"
+      ],
+      "finish_reason": "stop",
+      "ttft_s": 0.372,
+      "tokens": 501,
+      "tokens_per_s": 42.7,
+      "latency_s": 12.069,
+      "topic": "Квантизація та пам’ять у моделях",
+      "parsed_cards": [
+        {
+          "question": "Що таке квантизація в моделях?",
+          "answer": "Квантизація - це зберігання ваг моделі меншою кількістю біт, наприклад 4 замість 16.",
+          "kind": "definition"
+        },
+        {
+          "question": "Який ефект має квантизація на памʼять і якість моделі?",
+          "answer": "Квантизація зменшує памʼять, яку займає модель, але може погіршити якість.",
+          "kind": "fact"
+        },
+        {
+          "question": "Яка формула використовується для обчислення пам’яті під ваги моделі?",
+          "answer": "Пам’ять під ваги обчислюється як кількість параметрів × біт на вагу / 8.",
+          "kind": "formula"
+        },
+        {
+          "question": "Скільки пам’яті займає модель з 4 млрд параметрів у fp16?",
+          "answer": "Модель на 4 млрд параметрів у fp16 займає приблизно 8 ГБ пам’яті.",
+          "kind": "fact"
+        },
+        {
+          "question": "Як змінюється розмір KV-кешу зі зростанням довжини контексту?",
+          "answer": "KV-кеш росте лінійно з довжиною контексту.",
+          "kind": "fact"
+        },
+        {
+          "question": "Чому МоE-моделі генерують швидше?",
+          "answer": "МоE-моделі генерують швидше, бо на кожен токен використовують лише частину параметрів.",
+          "kind": "how"
+        }
+      ],
+      "raw": null,
+      "error": null
+    },
+    {
+      "id": "q02_tcp",
+      "title": "Мережі: TCP і UDP",
+      "requested": 6,
+      "cards": 6,
+      "json_ok": true,
+      "coverage": 1.0,
+      "missed_facts": [],
+      "finish_reason": "stop",
+      "ttft_s": 0.265,
+      "tokens": 454,
+      "tokens_per_s": 42.5,
+      "latency_s": 10.915,
+      "topic": "TCP та UDP",
+      "parsed_cards": [
+        {
+          "question": "Який протокол використовується для зʼєднання між пристроями на транспортному рівні?",
+          "answer": "TCP - протокол транспортного рівня з установленням зʼєднання.",
+          "kind": "definition"
+        },
+        {
+          "question": "Які кроки виконується під час тристороннього рукостискання в TCP?",
+          "answer": "Тристороннє рукостискання включає відправку SYN, відповідь SYN-ACK та підтвердження ACK.",
+          "kind": "fact"
+        },
+        {
+          "question": "Як TCP забезпечує доставку та порядок даних?",
+          "answer": "TCP гарантує доставку даних та їх порядок за допомогою підтвердження та повторної передачі.",
+          "kind": "fact"
+        },
+        {
+          "question": "Які особливості має UDP порівняно з TCP?",
+          "answer": "UDP не встановлює зʼєднання, не гарантує доставку, але має менші затримки.",
+          "kind": "fact"
+        },
+        {
+          "question": "У яких випадках використовується UDP?",
+          "answer": "UDP використовується для відеодзвінків, ігор та DNS-запитів.",
+          "kind": "example"
+        },
+        {
+          "question": "Що таке порт у мережевому протоколі?",
+          "answer": "Порт - це 16-бітне число, яке ідентифікує застосунок на хості.",
+          "kind": "fact"
+        }
+      ],
+      "raw": null,
+      "error": null
+    },
+    {
+      "id": "q03_sql",
+      "title": "Бази даних: SQL JOIN та індекси",
+      "requested": 6,
+      "cards": 5,
+      "json_ok": true,
+      "coverage": 0.83,
+      "missed_facts": [
+        "запис"
+      ],
+      "finish_reason": "stop",
+      "ttft_s": 0.251,
+      "tokens": 363,
+      "tokens_per_s": 42.8,
+      "latency_s": 8.713,
+      "topic": "SQL та індекси",
+      "parsed_cards": [
+        {
+          "question": "Що робить INNER JOIN у SQL?",
+          "answer": "INNER JOIN повертає лише рядки, для яких існує пара в обох таблицях.",
+          "kind": "definition"
+        },
+        {
+          "question": "Що робить LEFT JOIN у SQL?",
+          "answer": "LEFT JOIN повертає всі рядки лівої таблиці, а в разі відсутності пари - стовпці правої таблиці заповнюються NULL.",
+          "kind": "definition"
+        },
+        {
+          "question": "Як впливає індекс на операції вставки та оновлення?",
+          "answer": "Індекс прискорює пошук, але сповільнює вставку і оновлення, оскільки треба оновлювати індекс.",
+          "kind": "fact"
+        },
+        {
+          "question": "Яке дерево використовується для індексації в багатьох СУБД?",
+          "answer": "Більшість СУБД використовують B-дерева для індексації, що дає пошук за O(log n).",
+          "kind": "fact"
+        },
+        {
+          "question": "Які вимоги встановлені для первинного ключа?",
+          "answer": "Первинний ключ є унікальним і не може бути NULL.",
+          "kind": "definition"
+        }
+      ],
+      "raw": null,
+      "error": null
+    },
+    {
+      "id": "q04_photosynthesis",
+      "title": "Біологія: фотосинтез",
+      "requested": 5,
+      "cards": 5,
+      "json_ok": true,
+      "coverage": 1.0,
+      "missed_facts": [],
+      "finish_reason": "stop",
+      "ttft_s": 0.255,
+      "tokens": 374,
+      "tokens_per_s": 42.5,
+      "latency_s": 9.029,
+      "topic": "Фотосинтез",
+      "parsed_cards": [
+        {
+          "question": "Що таке фотосинтез?",
+          "answer": "Фотосинтез - процес, під час якого рослини перетворюють енергію світла на хімічну.",
+          "kind": "definition"
+        },
+        {
+          "question": "У яких органелах відбувається фотосинтез?",
+          "answer": "Фотосинтез відбувається в хлоропластах, що містять хлорофіл.",
+          "kind": "fact"
+        },
+        {
+          "question": "Які речовини утворюються під час фотосинтезу?",
+          "answer": "Рослина поєднує вуглекислий газ і воду, утворюючи глюкозу та кисень.",
+          "kind": "fact"
+        },
+        {
+          "question": "Де відбувається світлова фаза фотосинтезу?",
+          "answer": "Світлова фаза відбувається на мембранах тилакоїдів.",
+          "kind": "fact"
+        },
+        {
+          "question": "Де відбувається темнова фаза фотосинтезу?",
+          "answer": "Темнова фаза (цикл Кальвіна) відбувається у стромі хлоропласта.",
+          "kind": "fact"
+        }
+      ],
+      "raw": null,
+      "error": null
+    },
+    {
+      "id": "q05_physics",
+      "title": "Фізика: закони Ньютона (з формулами)",
+      "requested": 5,
+      "cards": 4,
+      "json_ok": true,
+      "coverage": 0.6,
+      "missed_facts": [
+        "інерц",
+        "f=m"
+      ],
+      "finish_reason": "stop",
+      "ttft_s": 0.262,
+      "tokens": 314,
+      "tokens_per_s": 42.6,
+      "latency_s": 7.601,
+      "topic": "Закони Ньютона",
+      "parsed_cards": [
+        {
+          "question": "Що сказаний перший закон Ньютона про стан тіла?",
+          "answer": "Тіло зберігає стан спокою або рівномірного прямолінійного руху, доки на нього не подіють інші тіла.",
+          "kind": "definition"
+        },
+        {
+          "question": "Як формулюється другий закон Ньютона?",
+          "answer": "Прискорення тіла прямо пропорційне рівнодійній силі й обернено пропорційне масі.",
+          "kind": "fact"
+        },
+        {
+          "question": "Що сказаний третій закон Ньютона про взаємодію тіл?",
+          "answer": "Сили, з якими тіла діють одне на одне, рівні за модулем і протилежні за напрямком.",
+          "kind": "definition"
+        },
+        {
+          "question": "Яка одиниця сили в СІ та її визначення?",
+          "answer": "1 Н = 1 кг·м/с²",
+          "kind": "formula"
+        }
+      ],
+      "raw": null,
+      "error": null
+    },
+    {
+      "id": "q06_history",
+      "title": "Історія: Київська Русь",
+      "requested": 5,
+      "cards": 4,
+      "json_ok": true,
+      "coverage": 0.8,
+      "missed_facts": [
+        "Руська правда"
+      ],
+      "finish_reason": "stop",
+      "ttft_s": 0.256,
+      "tokens": 397,
+      "tokens_per_s": 41.7,
+      "latency_s": 9.749,
+      "topic": "Правління Володимира Великого та Ярослава Мудрого",
+      "parsed_cards": [
+        {
+          "question": "У якому році князь Володимир Великий запровадив християнство як державну релігію Київської Русі?",
+          "answer": "Князь Володимир Великий запровадив християнство як державну релігію Київської Русі в 988 році.",
+          "kind": "fact"
+        },
+        {
+          "question": "Коли правив Ярослав Мудрий у Києві?",
+          "answer": "Ярослав Мудрий правив у Києві з 1019 по 1054 рік.",
+          "kind": "fact"
+        },
+        {
+          "question": "Що було укладено та збудовано під час правління Ярослава Мудрого?",
+          "answer": "Під час правління Ярослава було укладено «Руську правду» і збудовано Софійський собор у Києві.",
+          "kind": "fact"
+        },
+        {
+          "question": "Чому Ярослава Мудрого називали «тестем Європи»?",
+          "answer": "Ярослава називали «тестем Європи» через те, що його доньки стали дружинами європейських королів.",
+          "kind": "why"
+        }
+      ],
+      "raw": null,
+      "error": null
+    },
+    {
+      "id": "q07_english_ml",
+      "title": "English notes: overfitting",
+      "requested": 5,
+      "cards": 4,
+      "json_ok": true,
+      "coverage": 0.4,
+      "missed_facts": [
+        "validation",
+        "regulari",
+        "early stopping"
+      ],
+      "finish_reason": "stop",
+      "ttft_s": 0.145,
+      "tokens": 340,
+      "tokens_per_s": 41.9,
+      "latency_s": 8.227,
+      "topic": "Overfitting і underfitting",
+      "parsed_cards": [
+        {
+          "question": "Що таке overfitting?",
+          "answer": "Модель навчається надто добре на тренувальних даних, включаючи шум, і виконує погано на нових даних.",
+          "kind": "definition"
+        },
+        {
+          "question": "Як виявляється overfitting?",
+          "answer": "При порівнянні втрат на тренувальних та валідаційних даних валідаційна втрата починає зростати, а тренувальна - спадає.",
+          "kind": "fact"
+        },
+        {
+          "question": "Які методи використовуються для запобігання overfitting?",
+          "answer": "Регуляризація (L1, L2), dropout, додаткове підсилення даних та зупинення навчання на першому підсиленні втрат.",
+          "kind": "how"
+        },
+        {
+          "question": "Що таке underfitting?",
+          "answer": "Під час утворення моделі, яка не вміє виявляти патерни в даних, через її надто просту структуру.",
+          "kind": "definition"
+        }
+      ],
+      "raw": null,
+      "error": null
+    },
+    {
+      "id": "q08_python",
+      "title": "Програмування: Python, списки й кортежі",
+      "requested": 5,
+      "cards": 5,
+      "json_ok": true,
+      "coverage": 0.6,
+      "missed_facts": [
+        "змінюва",
+        "list comprehension"
+      ],
+      "finish_reason": "stop",
+      "ttft_s": 0.259,
+      "tokens": 343,
+      "tokens_per_s": 42.1,
+      "latency_s": 8.375,
+      "topic": "Списки, кортежі та словники у Python",
+      "parsed_cards": [
+        {
+          "question": "Як додавати та видаляти елементи у списку у Python?",
+          "answer": "Елементи можна додавати методом append і видаляти.",
+          "kind": "fact"
+        },
+        {
+          "question": "Чому кортеж можна використовувати як ключ у словнику у Python?",
+          "answer": "Кортеж незмінний, тому можна використовувати як ключ словника, якщо всі елементи хешовані.",
+          "kind": "fact"
+        },
+        {
+          "question": "Як працює словник у Python?",
+          "answer": "Словник зберігає пари ключ–значення та зберігає порядок вставки з Python 3.7.",
+          "kind": "definition"
+        },
+        {
+          "question": "Що дає вираз [x * x for x in range(5)] у Python?",
+          "answer": "[0, 1, 4, 9, 16]",
+          "kind": "example"
+        },
+        {
+          "question": "Які основні властивості списку та кортежу у Python?",
+          "answer": "Список у Python - змінний об'єкт, кортеж - незмінний.",
+          "kind": "fact"
+        }
+      ],
+      "raw": null,
+      "error": null
+    },
+    {
+      "id": "q09_economics",
+      "title": "Економіка: інфляція",
+      "requested": 4,
+      "cards": 4,
+      "json_ok": true,
+      "coverage": 0.75,
+      "missed_facts": [
+        "облікова ставк"
+      ],
+      "finish_reason": "stop",
+      "ttft_s": 0.281,
+      "tokens": 308,
+      "tokens_per_s": 41.9,
+      "latency_s": 7.61,
+      "topic": "Інфляція та дефляція",
+      "parsed_cards": [
+        {
+          "question": "Що таке інфляція?",
+          "answer": "Інфляція - це стійке зростання загального рівня цін, через яке падає купівельна спроможність грошей.",
+          "kind": "definition"
+        },
+        {
+          "question": "Як вимірюють інфляцію?",
+          "answer": "Індекс споживчих цін (ІСЦ) показує зміну вартості фіксованого кошика товарів і послуг.",
+          "kind": "definition"
+        },
+        {
+          "question": "Як центральний банк стримує інфляцію?",
+          "answer": "Центральний банк підвищує облікову ставку, щоб стримати інфляцію.",
+          "kind": "fact"
+        },
+        {
+          "question": "Що таке дефляція?",
+          "answer": "Дефляція - це загальне зниження цін, протилежне інфляції.",
+          "kind": "definition"
+        }
+      ],
+      "raw": null,
+      "error": null
+    },
+    {
+      "id": "q10_mixed_translate",
+      "title": "Конспект українською → картки англійською",
+      "requested": 4,
+      "cards": 4,
+      "json_ok": true,
+      "coverage": 1.0,
+      "missed_facts": [],
+      "finish_reason": "stop",
+      "ttft_s": 0.298,
+      "tokens": 174,
+      "tokens_per_s": 41.7,
+      "latency_s": 4.447,
+      "topic": "Git Version Control",
+      "parsed_cards": [
+        {
+          "question": "What is a commit in Git?",
+          "answer": "A commit is a snapshot of file states with a message describing changes.",
+          "kind": "definition"
+        },
+        {
+          "question": "What is a branch in Git?",
+          "answer": "A branch is a movable pointer to a commit that allows parallel development of features.",
+          "kind": "definition"
+        },
+        {
+          "question": "What does a merge operation do in Git?",
+          "answer": "A merge combines changes from one branch into another.",
+          "kind": "fact"
+        },
+        {
+          "question": "What happens if the same lines are modified differently in two branches in Git?",
+          "answer": "A conflict occurs when the same lines are changed differently in both branches and must be resolved manually.",
+          "kind": "fact"
+        }
+      ],
+      "raw": null,
+      "error": null
+    }
+  ]
+}

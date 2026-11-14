@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Конспект → картки</title>
+<link rel="stylesheet" href="style.css">
+<!--
+  Запуск (докладно - README.md):
+    1) ollama serve                       (або застосунок Ollama)
+    2) ollama pull qwen3:4b-instruct-2507-q4_K_M
+    3) ./start.sh                         (python3 -m http.server 8000 --bind 127.0.0.1)
+    4) http://localhost:8000
+-->
+</head>
+<body>
+<header>
+  <h1>Конспект → картки</h1>
+  <span id="status" class="pill" title="стан сервера моделі">перевіряю сервер…</span>
+</header>
+
+<main>
+  <details class="settings" id="settingsBox">
+    <summary>Налаштування моделі</summary>
+    <div class="grid">
+      <label>Адреса API <input id="baseUrl" placeholder="http://localhost:11434/v1"></label>
+      <label>Модель <input id="model" list="models"><datalist id="models"></datalist></label>
+      <label>Міркування
+        <select id="reasoningEffort">
+          <option value="none">без міркування (швидше)</option>
+          <option value="">як у моделі за замовчуванням</option>
+        </select></label>
+      <label>Temperature генерації <input id="temperature" type="number" min="0" max="1.5" step="0.1"></label>
+      <label>Structured output (JSON-схема)
+        <select id="useSchema">
+          <option value="1">так - сервер гарантує формат</option>
+          <option value="0">ні - лише промпт</option>
+        </select></label>
+      <label>Таймаут першого токена, с <input id="firstTimeout" type="number" min="5" step="5"></label>
+    </div>
+    <p class="hint" id="paramsHint"></p>
+  </details>
+
+  <section class="panel" id="inputPanel">
+    <h2>1. Конспект</h2>
+    <textarea id="notes" placeholder="Вставте конспект пари або завантажте .txt / .md файл…"></textarea>
+    <div class="row">
+      <label class="file">📄 Файл <input id="file" type="file" accept=".txt,.md,.markdown,text/plain"></label>
+      <label>Карток <input id="count" type="number" min="3" max="15" step="1"></label>
+      <label>Мова
+        <select id="language">
+          <option value="auto">як у конспекті</option>
+          <option value="uk">українська</option>
+          <option value="en">English</option>
+        </select></label>
+      <span id="noteStats" class="muted"></span>
+    </div>
+    <div class="row">
+      <button id="generate">Згенерувати картки</button>
+      <button id="stop" class="secondary" hidden>Зупинити</button>
+      <button id="example" class="link" type="button">вставити приклад</button>
+    </div>
+    <div id="progress" class="progress" hidden>
+      <span class="spinner"></span><span id="progressText"></span>
+    </div>
+    <div id="error" class="error" hidden></div>
+    <details id="rawBox" hidden><summary>Сирий вивід моделі</summary><pre id="raw"></pre></details>
+    <p id="metrics" class="metrics"></p>
+  </section>
+
+  <section class="panel" id="deckPanel" hidden>
+    <div class="row space">
+      <h2>2. Картки <span id="topic" class="muted"></span></h2>
+      <div class="row">
+        <button id="practice">Тренування</button>
+        <button id="exportTsv" class="secondary">Anki (TSV)</button>
+        <button id="exportJson" class="secondary">JSON</button>
+        <button id="clearDeck" class="secondary">Очистити</button>
+      </div>
+    </div>
+    <div id="warnings" class="warn" hidden></div>
+    <ol id="cards" class="cards"></ol>
+  </section>
+
+  <section class="panel" id="practicePanel" hidden>
+    <div class="row space">
+      <h2>3. Тренування <span id="practiceCounter" class="muted"></span></h2>
+      <span id="score" class="muted"></span>
+    </div>
+    <p id="pQuestion" class="question"></p>
+    <textarea id="pAnswer" placeholder="Ваша відповідь… (Ctrl/⌘+Enter - перевірити)"></textarea>
+    <div class="row">
+      <button id="check">Перевірити моделлю</button>
+      <button id="reveal" class="secondary">Показати відповідь</button>
+      <button id="next" class="secondary">Далі →</button>
+      <button id="endPractice" class="link">завершити</button>
+    </div>
+    <div id="gradeProgress" class="progress" hidden><span class="spinner"></span><span>модель перевіряє відповідь…</span></div>
+    <div id="pError" class="error" hidden></div>
+    <div id="verdict" class="verdict" hidden></div>
+    <p id="pReference" class="reference" hidden></p>
+  </section>
+</main>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
